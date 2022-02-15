@@ -1,25 +1,33 @@
 import React from 'react';
 import './SearchBar.css'
-
-const SearchBar = () => {
-
+import { useState } from 'react';
 
 
-    
-    
+const SearchBar = (props) => {
+
+    const [search, setSearch] = useState('');
+
+    function handleSubmit(event){
+        event.preventDefault();
+        props.addSearchProperty(search)
+        setSearch('')
+    }
 
     return (
-        <div class="topnav">
-            <a class="active" href="#home">Dewey Decibel System</a>
-                <div class="search-container">
-                    <form action="/action_page.php">
-                        <input type="text" placeholder="Search.." name="search"></input>
-                            <button type="submit">Submit</button>
-                    </form>
-                </div>
-        </div>
-    )
-
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="header-search">
+                <span className="visually-hidden"></span>
+            </label>
+            <input
+                type="text"
+                id="header-search"
+                placeholder="Search by artist, title, etc.."
+                value={search}
+                onChange={(event) => setSearch((event.target.value))} 
+            />
+            <button type="submit">Search</button>
+        </form>
+    );
 }
 
 export default SearchBar;

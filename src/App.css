@@ -1,0 +1,45 @@
+.neon {
+    color: #fff;
+    text-shadow:
+      0 0 5px rgb(179, 39, 19),
+      0 0 10px rgb(179, 39, 17),
+      0 0 20px rgb(179, 39, 21),
+      0 0 40px rgb(179, 39, 29),
+      0 0 80px rgb(179, 39, 29),
+      0 0 90px rgb(179, 39, 29),
+      0 0 100px rgb(179, 39, 29),
+      0 0 150px rgb(179, 39, 29);
+  }
+
+  :root {
+    font-size: calc(1vw + 1vh + 1.5vmin);
+  }
+  
+  .container {
+    margin: 0 auto;
+  }
+  
+  body {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #4d1313;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-family: -apple-system, 
+      BlinkMacSystemFont, 
+      "Segoe UI", 
+      Roboto, 
+      Oxygen-Sans, 
+      Ubuntu, 
+      Cantarell, 
+      "Helvetica Neue", 
+      sans-serif;
+  }
+  
+  h1 {
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+  }
