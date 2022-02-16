@@ -1,0 +1,16 @@
+.title-header{
+    width: 36vw;
+}
+
+.other-header{
+    width: 16vw;
+}
+
+tr {
+    border-color: rgb(141, 29, 29);
+    color: aliceblue;
+}
+
+.table>:not(:first-child) {
+    border-top: 2px solid rgb(182, 79, 79);
+}

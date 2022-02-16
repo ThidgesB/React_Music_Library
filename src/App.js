@@ -3,6 +3,7 @@ import axios from 'axios';
 import DisplayMusic from './Components/DisplayMusic/DisplayMusic';
 import SearchBar from './Components/SearchBar/SearchBar';
 import './App.css'
+import TitleBar from './Components/TitleBar/TitleBar';
 
 
 function App() {
@@ -22,7 +23,7 @@ async function getAllMusic() {
   return (
     <div>
       <div>
-        <h3 className='appTitle'><div className='neon'>Dewey Decibel System</div></h3>
+        <TitleBar />
         <DisplayMusic musicLibrary={musicLibrary}/>
       </div>
       
