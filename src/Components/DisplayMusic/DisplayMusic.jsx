@@ -1,6 +1,8 @@
 import SearchBar from "../SearchBar/SearchBar";
 import React, { useState, useEffect } from "react";
 import './DisplayMusic.css'
+import Songform from "../SongForm/SongForm";
+import CreateButton from "../CreateButton/CreateButton";
 
 const DisplayMusic = (props) => {
   const [filteredSongs, setFilteredSongs] = useState(props.musicLibrary);
@@ -17,7 +19,7 @@ const DisplayMusic = (props) => {
         result.artist.includes(search) ||
         result.album.includes(search) ||
         result.genre.includes(search) ||
-        result.releaseDate.includes(search)
+        result.release_date.includes(search)
       ) {
         return true;
       } else return false;
@@ -44,7 +46,7 @@ const DisplayMusic = (props) => {
               <tr>
                 <td>{song.title}</td> <td>{song.artist}</td>{" "}
                 <td>{song.album}</td> <td>{song.genre}</td>{" "}
-                <td>{song.releaseDate}</td>
+                <td>{song.release_date}</td>
               </tr>
             );
           })}
