@@ -19,6 +19,11 @@ const Songform = (props) => {
             "release_date": songReleaseDate
         }
         props.createSong(createdSong)
+        setSongTitle('')
+        setSongArtist('')
+        setSongAlbum('')
+        setSongGenre('')
+        setSongReleaseDate('')
     }
 
 
@@ -26,7 +31,7 @@ const Songform = (props) => {
 
 
     return ( 
-        <form action='' method='post' onSumbit={handleSubmit}>
+        <form  onSubmit={handleSubmit}>
             <label for='title'>Title</label>
             <input type='text' className='title' value={songTitle} onChange={(event) => setSongTitle((event.target.value))}></input>
             <label for='artist'>Artist</label>

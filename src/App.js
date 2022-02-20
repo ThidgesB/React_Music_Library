@@ -22,14 +22,15 @@ async function getAllMusic() {
 
 async function createSong(song) {
   let response = await axios.post('http://127.0.0.1:8000/music/', song)
+  console.log(response)
 }
 
   return (
     <div>
       <div>
+        <Songform createSong={createSong}/>
         <TitleBar />
         <DisplayMusic musicLibrary={musicLibrary}/>
-        <Songform createSong={createSong}/>
       </div>
       
     </div>
