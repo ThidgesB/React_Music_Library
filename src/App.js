@@ -10,13 +10,22 @@ import EditSong from './Components/EditSong/EditSong';
 function App() {
 
 const [musicLibrary, setMusicLibrary] = useState([]);
+const [editSongId, setEditSongId] = useState(0);
+
+function setSongId(songId){
+  setEditSongId(songId)
+}
+
+function returnSongId(){
+  return editSongId
+}
 
 useEffect(() => {
   getAllMusic();
 }, [])
 
-async function editSong(songID){
-  let response = await axios.put('http://127.0.0.1:8000/music/' + songID + '/')
+async function editSong(songID, requestBody){
+  let response = await axios.put('http://127.0.0.1:8000/music/' + songID + '/', requestBody)
 }
 
 async function getAllMusic() {
@@ -34,7 +43,7 @@ async function createSong(song) {
       <div>
         <Songform createSong={createSong}/>
         <TitleBar />
-        <DisplayMusic musicLibrary={musicLibrary}/>
+        <DisplayMusic musicLibrary={musicLibrary} editSong={editSong}/>
       </div>
       
     </div>

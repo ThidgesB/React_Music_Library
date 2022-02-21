@@ -19,7 +19,7 @@ const EditSong = (props) => {
             "genre": songGenre,
             "release_date": songReleaseDate
         }
-        props.editSong()
+        props.editSong(props.returnSongId(), editedSong)
         setSongTitle('')
         setSongArtist('')
         setSongAlbum('')

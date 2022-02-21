@@ -4,19 +4,18 @@ import './DisplayMusic.css'
 import EditSong from "../EditSong/EditSong";
 
 const DisplayMusic = (props) => {
+
+  const [onEditClick, setOnEditClick] = useState(false);
   const [filteredSongs, setFilteredSongs] = useState(props.musicLibrary);
 
   useEffect(() => {
     setFilteredSongs(props.musicLibrary);
   }, [props.musicLibrary]);
 
-  function onEditClick(songID){
-    return (
-      <form>
-        <label for='title'>Title</label>
-        <input type='text'></input>
-      </form>
-    )
+
+  function handleClick(song){
+    setOnEditClick(!onEditClick)
+    
   }
 
   function filterBySearch(search) {
@@ -52,15 +51,16 @@ const DisplayMusic = (props) => {
           {filteredSongs.map((song) => {
             return (
               <tr>
-                <td>{song.title}</td> <td>{song.artist}</td>{" "}
-                <td>{song.album}</td> <td>{song.genre}</td>{" "}
+                <td>{song.title}</td> <td>{song.artist}</td>
+                <td>{song.album}</td> <td>{song.genre}</td>
                 <td>{song.release_date}</td>
-                <td><button onClick={() => onEditClick(song.id)} type='button'>Edit</button></td>
+                <td><button onClick={() => handleClick(song)} type='button'>Edit</button></td>
               </tr>
             );
           })}
         </tbody>
       </table>
+      {onEditClick && <EditSong />}
     </div>
   );
 };
