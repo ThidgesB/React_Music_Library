@@ -1,8 +1,7 @@
 import SearchBar from "../SearchBar/SearchBar";
 import React, { useState, useEffect } from "react";
 import './DisplayMusic.css'
-import Songform from "../SongForm/SongForm";
-import CreateButton from "../CreateButton/CreateButton";
+import EditSong from "../EditSong/EditSong";
 
 const DisplayMusic = (props) => {
   const [filteredSongs, setFilteredSongs] = useState(props.musicLibrary);
@@ -10,6 +9,15 @@ const DisplayMusic = (props) => {
   useEffect(() => {
     setFilteredSongs(props.musicLibrary);
   }, [props.musicLibrary]);
+
+  function onEditClick(songID){
+    return (
+      <form>
+        <label for='title'>Title</label>
+        <input type='text'></input>
+      </form>
+    )
+  }
 
   function filterBySearch(search) {
     console.log(search);
@@ -47,6 +55,7 @@ const DisplayMusic = (props) => {
                 <td>{song.title}</td> <td>{song.artist}</td>{" "}
                 <td>{song.album}</td> <td>{song.genre}</td>{" "}
                 <td>{song.release_date}</td>
+                <td><button onClick={() => onEditClick(song.id)} type='button'>Edit</button></td>
               </tr>
             );
           })}
