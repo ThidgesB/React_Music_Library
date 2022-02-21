@@ -24,6 +24,7 @@ const Songform = (props) => {
         setSongAlbum('')
         setSongGenre('')
         setSongReleaseDate('')
+        props.getAllMusic()
     }
 
 

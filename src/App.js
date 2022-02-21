@@ -24,6 +24,10 @@ useEffect(() => {
   getAllMusic();
 }, [])
 
+async function deleteSong(songID){
+  let response = await axios.delete('http://127.0.0.1:8000/music/' + songID + '/')
+}
+
 async function editSong(songID, requestBody){
   let response = await axios.put('http://127.0.0.1:8000/music/' + songID + '/', requestBody)
 }
@@ -41,9 +45,9 @@ async function createSong(song) {
   return (
     <div>
       <div>
-        <Songform createSong={createSong}/>
+        <Songform createSong={createSong} getAllMusic={getAllMusic}/>
         <TitleBar />
-        <DisplayMusic musicLibrary={musicLibrary} editSong={editSong}/>
+        <DisplayMusic musicLibrary={musicLibrary} returnSongId={returnSongId} editSong={editSong} setSongId={setSongId} deleteSong={deleteSong} getAllMusic={getAllMusic}/>
       </div>
       
     </div>

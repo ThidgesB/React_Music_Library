@@ -25,6 +25,7 @@ const EditSong = (props) => {
         setSongAlbum('')
         setSongGenre('')
         setSongReleaseDate('')
+        props.getAllMusic()
     }
 
 

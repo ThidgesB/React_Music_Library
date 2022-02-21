@@ -15,7 +15,12 @@ const DisplayMusic = (props) => {
 
   function handleClick(song){
     setOnEditClick(!onEditClick)
-    
+    props.setSongId(song.id)
+  }
+
+  function handleDelete(song){
+    props.deleteSong(song.id)
+    props.getAllMusic()
   }
 
   function filterBySearch(search) {
@@ -54,13 +59,13 @@ const DisplayMusic = (props) => {
                 <td>{song.title}</td> <td>{song.artist}</td>
                 <td>{song.album}</td> <td>{song.genre}</td>
                 <td>{song.release_date}</td>
-                <td><button onClick={() => handleClick(song)} type='button'>Edit</button></td>
+                <td><button onClick={() => handleClick(song)} type='button'>Edit</button><button onClick={() => handleDelete(song)}>Delete</button></td>
               </tr>
             );
           })}
         </tbody>
       </table>
-      {onEditClick && <EditSong />}
+      {onEditClick && <EditSong returnSongId={props.returnSongId} editSong={props.editSong} getAllMusic={props.getAllMusic}/>}
     </div>
   );
 };
