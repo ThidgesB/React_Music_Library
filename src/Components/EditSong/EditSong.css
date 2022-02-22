@@ -1,0 +1,14 @@
+.button {
+    color: #fff;
+    text-shadow:
+      0 0 5px rgb(179, 39, 19),
+      0 0 10px rgb(179, 39, 17),
+      0 0 20px rgb(179, 39, 21),
+      0 0 40px rgb(179, 39, 29),
+      0 0 80px rgb(179, 39, 29),
+      0 0 90px rgb(179, 39, 29),
+      0 0 100px rgb(179, 39, 29),
+      0 0 150px rgb(179, 39, 29);
+      background-color: #4d1313;
+      border-radius: 12px;
+}

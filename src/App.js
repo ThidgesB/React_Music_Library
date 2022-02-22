@@ -4,7 +4,6 @@ import DisplayMusic from './Components/DisplayMusic/DisplayMusic';
 import './App.css'
 import TitleBar from './Components/TitleBar/TitleBar';
 import Songform from './Components/SongForm/SongForm';
-import EditSong from './Components/EditSong/EditSong';
 
 
 function App() {
@@ -26,10 +25,12 @@ useEffect(() => {
 
 async function deleteSong(songID){
   let response = await axios.delete('http://127.0.0.1:8000/music/' + songID + '/')
+  getAllMusic()
 }
 
 async function editSong(songID, requestBody){
   let response = await axios.put('http://127.0.0.1:8000/music/' + songID + '/', requestBody)
+  getAllMusic()
 }
 
 async function getAllMusic() {
@@ -40,16 +41,16 @@ async function getAllMusic() {
 async function createSong(song) {
   let response = await axios.post('http://127.0.0.1:8000/music/', song)
   console.log(response)
+  getAllMusic()
 }
 
   return (
     <div>
       <div>
-        <Songform createSong={createSong} getAllMusic={getAllMusic}/>
         <TitleBar />
         <DisplayMusic musicLibrary={musicLibrary} returnSongId={returnSongId} editSong={editSong} setSongId={setSongId} deleteSong={deleteSong} getAllMusic={getAllMusic}/>
+        <Songform createSong={createSong} getAllMusic={getAllMusic}/>
       </div>
-      
     </div>
   );
 }

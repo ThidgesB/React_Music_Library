@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './EditSong.css'
 
 
 const EditSong = (props) => {
@@ -25,7 +26,6 @@ const EditSong = (props) => {
         setSongAlbum('')
         setSongGenre('')
         setSongReleaseDate('')
-        props.getAllMusic()
     }
 
 
@@ -41,7 +41,7 @@ const EditSong = (props) => {
             <input type='text' className='genre' value={songGenre} onChange={(event) => setSongGenre((event.target.value))}></input>
             <label for='release_date'>Release Date</label>
             <input type='date' className='release_date' value={songReleaseDate} onChange={(event) => setSongReleaseDate((event.target.value))}></input>
-            <button type="submit">Submit</button>
+            <button type="submit" className='button'>Submit</button>
         </form>
      );
 }

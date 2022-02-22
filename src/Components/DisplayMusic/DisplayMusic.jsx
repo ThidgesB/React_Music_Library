@@ -20,7 +20,6 @@ const DisplayMusic = (props) => {
 
   function handleDelete(song){
     props.deleteSong(song.id)
-    props.getAllMusic()
   }
 
   function filterBySearch(search) {
@@ -59,13 +58,12 @@ const DisplayMusic = (props) => {
                 <td>{song.title}</td> <td>{song.artist}</td>
                 <td>{song.album}</td> <td>{song.genre}</td>
                 <td>{song.release_date}</td>
-                <td><button onClick={() => handleClick(song)} type='button'>Edit</button><button onClick={() => handleDelete(song)}>Delete</button></td>
+                <td><button className="button" onClick={() => handleClick(song)} type='button'>Edit</button><button className="button" onClick={() => handleDelete(song)}>Delete</button>{onEditClick && song.id === props.returnSongId() && <EditSong returnSongId={props.returnSongId} editSong={props.editSong} getAllMusic={props.getAllMusic}/>}</td>
               </tr>
             );
           })}
         </tbody>
       </table>
-      {onEditClick && <EditSong returnSongId={props.returnSongId} editSong={props.editSong} getAllMusic={props.getAllMusic}/>}
     </div>
   );
 };
